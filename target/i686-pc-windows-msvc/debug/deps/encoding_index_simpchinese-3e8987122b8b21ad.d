@@ -1,9 +1,0 @@
-C:\Users\nsoop\Desktop\hello-cargo\target\i686-pc-windows-msvc\debug\deps\encoding_index_simpchinese-3e8987122b8b21ad.rmeta: C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\lib.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030_ranges.rs
-
-C:\Users\nsoop\Desktop\hello-cargo\target\i686-pc-windows-msvc\debug\deps\libencoding_index_simpchinese-3e8987122b8b21ad.rlib: C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\lib.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030_ranges.rs
-
-C:\Users\nsoop\Desktop\hello-cargo\target\i686-pc-windows-msvc\debug\deps\encoding_index_simpchinese-3e8987122b8b21ad.d: C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\lib.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030.rs C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030_ranges.rs
-
-C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\lib.rs:
-C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030.rs:
-C:\Users\nsoop\.cargo\registry\src\index.crates.io-6f17d22bba15001f\encoding-index-simpchinese-1.20141219.5\gb18030_ranges.rs:
