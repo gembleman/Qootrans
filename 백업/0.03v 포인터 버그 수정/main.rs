@@ -30,6 +30,7 @@ fn main() {
     ゲーム開発している経過等をツイートします。
     アップする画像は制作中のものだったりするので色々変わります。"
     };
+    //let text_length = text_big.chars().count();
     //enhd 적용됐는지 확인용 - "蜜ドル辞典"
     let text: String = String::from(text_big);
 
@@ -37,6 +38,27 @@ fn main() {
 
     // 문자열을 &str로 변환합니다..
     println!("Translated string: {:?}", translated_string);
+    //let mut len = 0;
+
+    //while unsafe { *translated_string.add(len) } != 0 {
+    //    len += 1;
+    //}
+    /*
+    let len = find_len(translated_string);
+    // *mut u16 포인터를 &[u16] 슬라이스로 변환
+    println!("len: {}", len); //138
+    println!("text_length: {}", text_length); //101
+
+    let u16_slice = unsafe { slice::from_raw_parts(translated_string, len) };
+    println!("u16_slice: {:?}", u16_slice);
+    // UTF-16 슬라이스를 UTF-8으로 디코딩하여 &str을 얻습니다.
+    let os_string = OsString::from_wide(u16_slice);
+    let strrr = os_string
+        .into_string()
+        .expect("Failed to convert to string");
+
+    println!("String: {}", strrr);
+    */
 
     // 라이브러리를 종료합니다.
     unsafe { eztrans_lib.terminate() };
