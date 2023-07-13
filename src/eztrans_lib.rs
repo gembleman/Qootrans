@@ -21,6 +21,11 @@ type J2K_InitializeEx = unsafe extern "stdcall" fn(*const c_char, *const c_char)
 type J2K_TranslateMMNTW = unsafe extern "stdcall" fn(c_int, *const u16) -> *const u16;
 type J2K_Terminate = unsafe extern "stdcall" fn() -> c_int;
 
+pub enum jp_str_enum<'a> {
+    str(&'a str),
+    string(&'a String),
+}
+
 impl<'a> EzTransLib<'a> {
     /// return false when failed
     pub unsafe fn initialize(&self, init_str: &CStr, home_dir: &CStr) -> bool {
@@ -30,8 +35,12 @@ impl<'a> EzTransLib<'a> {
     }
 
     #[inline]
-    pub unsafe fn translate(&self, jp_str: String) -> *const u16 {
-        let os_str = OsStr::new(&jp_str);
+    pub unsafe fn translate(&self, jp_str: jp_str_enum) -> String {
+        let os_str = match jp_str {
+            jp_str_enum::str(str) => OsStr::new(str),
+            jp_str_enum::string(string) => OsStr::new(string),
+        };
+
         let input_str: Vec<u16> = os_str.encode_wide().chain(Some(0)).collect();
         let ret = (self.J2K_TranslateMMNTW)(0, input_str.as_ptr());
 
@@ -48,9 +57,9 @@ impl<'a> EzTransLib<'a> {
         let strrr = os_string
             .into_string()
             .expect("Failed to convert to string");
-        println!("funtion String: {}", strrr);
+        //rintln!("funtion String: {}", strrr);
 
-        ret
+        strrr
     }
 
     #[inline]
