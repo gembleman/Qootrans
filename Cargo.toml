@@ -1,5 +1,5 @@
 [package]
-name = "hello-cargo"
+name = "Qootrans"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,3 +10,5 @@ libc = "*"
 dlopen = "*"
 dlopen_derive = "*"
 encoding = "*"
+rayon = "*"
+num_cpus = "*"

@@ -21,10 +21,12 @@ type J2K_InitializeEx = unsafe extern "stdcall" fn(*const c_char, *const c_char)
 type J2K_TranslateMMNTW = unsafe extern "stdcall" fn(c_int, *const u16) -> *const u16;
 type J2K_Terminate = unsafe extern "stdcall" fn() -> c_int;
 
+/*
 pub enum jp_str_enum<'a> {
     str(&'a str),
     string(&'a String),
 }
+*/
 
 impl<'a> EzTransLib<'a> {
     /// return false when failed
@@ -35,31 +37,33 @@ impl<'a> EzTransLib<'a> {
     }
 
     #[inline]
-    pub unsafe fn translate(&self, jp_str: jp_str_enum) -> String {
+    pub fn translate(&self, jp_str: &str) -> String {
+        /*
         let os_str = match jp_str {
             jp_str_enum::str(str) => OsStr::new(str),
             jp_str_enum::string(string) => OsStr::new(string),
         };
+        */
 
-        let input_str: Vec<u16> = os_str.encode_wide().chain(Some(0)).collect();
-        let ret = (self.J2K_TranslateMMNTW)(0, input_str.as_ptr());
+        let input_str: Vec<u16> = OsStr::new(jp_str).encode_wide().chain(Some(0)).collect();
+        let ret = unsafe {(self.J2K_TranslateMMNTW)(0, input_str.as_ptr())};
 
         let mut current_ptr = ret;
         let mut len = 0;
         //문자열 길이 계산 - 포인터를 뒤로 이동시키며 0을 만날 때까지
-        while *current_ptr != 0 {
+        
+        unsafe {while *current_ptr != 0 {
             len += 1;
             current_ptr = current_ptr.add(1);
         }
+    }
+            
+        
 
-        let u16_slice = slice::from_raw_parts(ret, len);
+        let u16_slice = unsafe { slice::from_raw_parts(ret, len)};
         let os_string = OsString::from_wide(u16_slice);
-        let strrr = os_string
-            .into_string()
-            .expect("Failed to convert to string");
-        //rintln!("funtion String: {}", strrr);
-
-        strrr
+        let translated_text = os_string.into_string().unwrap();
+        translated_text
     }
 
     #[inline]
